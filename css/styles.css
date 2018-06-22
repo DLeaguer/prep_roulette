@@ -1,1 +1,14 @@
+#main {
+    display: flex;
+    flex-direction: row wrap;
+}
 
+#even, #odd, #zero {
+    flex: 0 1 10px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    width: 40px;
+    padding: 40px;
+    margin: 5px;
+    font-size: 50px;
+}

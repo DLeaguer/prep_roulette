@@ -8,6 +8,57 @@ For odd numbers, give it a background color of red and a font color of white.
 For the number 0, give it a background color of green and a font color of white.
 
 A random number will be generated every 5 seconds.*/
+var runRoulette;
+
+var startButton = document.createElement('button');
+startButton.innerHTML = 'start';
+startButton.id = 'startButton';
+document.body.appendChild(startButton);
+startButton.addEventListener('click', timerOn);
+
+function timerOn() {
+    console.log('start')
+    runRoulette = setInterval(random,1000);
+}
+
+var stopButton = document.createElement('button');
+stopButton.innerHTML = 'stop';
+stopButton.id = 'stopButton'
+document.body.appendChild(stopButton);
+stopButton.addEventListener('click', timerOff);
+
+function timerOff() {
+    console.log('stop')
+    clearInterval(runRoulette);
+}
+
+function random(){
+    var randomNum = Math.floor(Math.random()* 36);
+    if (randomNum % 2 === 0 && randomNum !== 0) {
+        var makeEven = document.createElement('div');
+        makeEven.innerHTML = randomNum;
+        makeEven.id = 'even';
+        makeEven.style.backgroundColor = 'black';
+        makeEven.style.color = 'white';
+        document.body.appendChild(makeEven);
+    }
+    else if (randomNum % 2 === 1 && randomNum !== 0) {
+        var makeOdd = document.createElement('div');
+        makeOdd.innerHTML = randomNum;
+        makeOdd.id = 'odd';
+        makeOdd.style.backgroundColor = 'red';
+        makeOdd.style.color = 'white';
+        document.body.appendChild(makeOdd);
+    }
+    else if (randomNum === 0) {
+        var makeZero = document.createElement('div');
+        makeZero.innerHTML = randomNum;
+        makeZero.id = 'zero';
+        makeZero.style.backgroundColor = 'green';
+        makeZero.style.color = 'white';
+        document.body.appendChild(makeZero);
+    }
+}
 
 // Bonus
 // 1) Add some additional styling to your application.
